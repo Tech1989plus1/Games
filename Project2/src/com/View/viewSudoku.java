@@ -4,23 +4,32 @@ import java.util.Scanner;
 public class viewSudoku implements viewInterface{
 
 	private int row, column;
-	Scanner userInput = new Scanner(System.in);
+	Scanner userInput;
+	
+	public viewSudoku() {
+		userInput = new Scanner(System.in);
+	}
 	
 	@Override
 	public int start() {
 		// TODO Auto-generated method stub
+		int min = 0, max = 1;
 		System.out.println("Welcome to Sudoku");
-		System.out.print("[-1]: Exit, [0]: Start Game: ");
+		System.out.print("[0]: Exit, [1]: Start Game: ");
 		
-		return checkValid(-1, 0);
+		int input = checkValid(min, max);
+		
+		switch(input){
+		case 0:
+			System.out.println("exit: Sudoku GoodBye!");
+			break;
+		case 1:
+			setRow(); setColumn();
+		}
+		
+		return input;
 	}
 
-	@Override
-	public void randomBoard() {
-		// TODO Auto-generated method stub
-		
-		this.row = this.column = 9;	
-	}
 
 	@Override
 	public void move() {
@@ -35,10 +44,12 @@ public class viewSudoku implements viewInterface{
 		
 		System.out.print("Value: ");
 		int value = checkValid(zero, column);
+		
+		//
 	}
 
 	@Override
-	public int checkValid(int max, int min) {
+	public int checkValid(int min, int max) {
 		// TODO Auto-generated method stub
 	boolean valid = false;
 		
@@ -60,6 +71,14 @@ public class viewSudoku implements viewInterface{
 
 	@Override
 	public void printBoard() {
+		try {
+			if(row <= 0 && column <= 0)
+				throw new Exception("Error: No row or column input");
+		}catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			setRow(); setColumn();
+			
+		}
 		String [] scale = {" ","1","2","3","4","5","6","7","8","9"};
 		for(int index = 0; index <= row; index++) {
 			for(int jndex = 0; jndex <= column; jndex++) {
@@ -74,6 +93,31 @@ public class viewSudoku implements viewInterface{
 			System.out.println();
 		}
 		
+	}
+
+	@Override
+	public void setRow() {
+		// TODO Auto-generated method stub
+		this.row = 9;
+		
+	}
+
+	@Override
+	public int getRow() {
+		// TODO Auto-generated method stub
+		return this.row;
+	}
+
+	@Override
+	public void setColumn() {
+		// TODO Auto-generated method stub
+		this.column = 9;
+	}
+
+	@Override
+	public int getColumn() {
+		// TODO Auto-generated method stub
+		return this.column;
 	}
 	
 
