@@ -1,6 +1,5 @@
 package com.View;
 
-import java.lang.Exception;
 import java.util.Scanner;
 
 
@@ -43,7 +42,7 @@ public class viewNonogram implements viewInterface {
 		 * changeBlock will go right here (from the move)
 		 */
 	}
-/*
+
 	@Override
 	public boolean mainMenu() {
 		// TODO Auto-generated method stub
@@ -51,7 +50,7 @@ public class viewNonogram implements viewInterface {
 		
 		while(!finish) {
 			finish = printBoard();
-			move(new Scanner(System.in));
+			move();
 			
 			if(finish) 
 				System.out.println("Congratulations! You solved nonogram!");
@@ -60,33 +59,6 @@ public class viewNonogram implements viewInterface {
 		return false;
 	}
 
-	@Override
-	public void randomBoard(Scanner input) {
-		// TODO Auto-generated method stub
-		
-		System.out.print("Number of rows (max15): ");
-		row = input.nextInt();
-		
-		System.out.print("Number of columns (max15):");
-		column = input.nextInt();
-	}
-
-	@Override
-	public boolean printBoard() {
-		// TODO Auto-generated method stub
-		System.out.println(board.toString());
-		System.out.println();
-		
-		return board.isBoardSolved();
-	}
-
-	@Override
-	public void solution() {
-		// TODO Auto-generated method stub
-		
-	}
-
-*/
 	@Override
 	public int checkValid(int min, int max) {
 		// TODO Auto-generated method stub
