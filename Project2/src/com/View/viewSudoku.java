@@ -1,30 +1,27 @@
 package com.View;
 import java.util.Scanner;
-public class viewNonogram implements viewInterface {
-	
+
+public class viewSudoku implements viewInterface{
+
 	private int row, column;
-	static Scanner userInput = new Scanner(System.in);
+	Scanner userInput = new Scanner(System.in);
 	
 	@Override
 	public int start() {
 		// TODO Auto-generated method stub
-		System.out.println("Welcome to Nonogram");
-		System.out.print("[-1]: Exit, [0]: Random Board: ");
+		System.out.println("Welcome to Sudoku");
+		System.out.print("[-1]: Exit, [0]: Start Game: ");
 		
 		return checkValid(-1, 0);
 	}
-	
+
 	@Override
 	public void randomBoard() {
 		// TODO Auto-generated method stub
-		int MAX = 15, MIN = 0;
-		System.out.print("Number of rows (max15): ");
-		row = checkValid(MIN, MAX);
 		
-		System.out.print("Number of columns (max15):");
-		column = checkValid(MIN, MAX);
+		this.row = this.column = 9;	
 	}
-	
+
 	@Override
 	public void move() {
 		// TODO Auto-generated method stub
@@ -36,16 +33,14 @@ public class viewNonogram implements viewInterface {
 		System.out.print("Column: ");
 		int columnMove = checkValid(zero, column);
 		
-		/*
-		 * changeBlock will go right here (from the move)
-		 */
+		System.out.print("Value: ");
+		int value = checkValid(zero, column);
 	}
 
-
 	@Override
-	public int checkValid(int min, int max) {
+	public int checkValid(int max, int min) {
 		// TODO Auto-generated method stub
-		boolean valid = false;
+	boolean valid = false;
 		
 		while(!valid) {
 			try {
@@ -60,8 +55,6 @@ public class viewNonogram implements viewInterface {
 				System.out.print(ex.getMessage());
 			}
 		}
-		
 		return 0;
 	}
-
 }
