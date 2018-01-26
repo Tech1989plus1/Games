@@ -1,9 +1,6 @@
 package com.View;
-import java.util.Scanner;
 
-public interface viewInterface {
-
-static Scanner userInput = new Scanner(System.in);
+public interface viewInterface{
 
 public int start();
 
@@ -17,4 +14,5 @@ public void move();
 //returns input value, passes in a min in max value
 public int checkValid(int max, int min);
 
+public void printBoard();
 }

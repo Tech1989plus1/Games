@@ -57,4 +57,26 @@ public class viewSudoku implements viewInterface{
 		}
 		return 0;
 	}
+
+	@Override
+	public void printBoard() {
+		String [] scale = {" ","1","2","3","4","5","6","7","8","9"};
+		for(int index = 0; index <= row; index++) {
+			for(int jndex = 0; jndex <= column; jndex++) {
+				if(index == 0)
+					System.out.print(scale[jndex]);
+				else if(jndex == 0)
+					System.out.print(scale[index]);
+				else
+					System.out.print("-");//Board info right here
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+		
+	}
+	
+
+	
+	
 }
