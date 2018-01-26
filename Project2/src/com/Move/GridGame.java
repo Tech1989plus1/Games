@@ -1,5 +1,5 @@
 package com.Move;
 
-public class GridGame {
+public interface GridGame {
 
 }
