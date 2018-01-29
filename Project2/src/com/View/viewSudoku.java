@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class viewSudoku implements viewInterface{
 
 	private int row, column;
+	private userMove moves;
 	Scanner userInput;
 	
 	public viewSudoku() {
@@ -11,7 +12,7 @@ public class viewSudoku implements viewInterface{
 	}
 	
 	@Override
-	public int start() {
+	public void start() {
 		// TODO Auto-generated method stub
 		int min = 0, max = 1;
 		System.out.println("Welcome to Sudoku");
@@ -24,28 +25,28 @@ public class viewSudoku implements viewInterface{
 			System.out.println("exit: Sudoku GoodBye!");
 			break;
 		case 1:
-			setRow(); setColumn();
+			setRow(); 
+			setColumn();
 		}
-		
-		return input;
 	}
 
 
 	@Override
-	public void move() {
+	public userMove move() {
 		// TODO Auto-generated method stub
 		int zero = 0;
+		moves = new userMove();
 		
 		System.out.print("Row: ");
-		int rowMove = checkValid(zero, row); 
+		moves.setRow(checkValid(zero, row)); 
 		
 		System.out.print("Column: ");
-		int columnMove = checkValid(zero, column);
+		moves.setColumn(checkValid(zero, row)); 
 		
 		System.out.print("Value: ");
-		int value = checkValid(zero, column);
+		moves.setInput(checkValid(zero, row)); 
 		
-		//
+		return moves;
 	}
 
 	@Override
@@ -98,7 +99,7 @@ public class viewSudoku implements viewInterface{
 	@Override
 	public void setRow() {
 		// TODO Auto-generated method stub
-		this.row = 9;
+		 this.row = 9;
 		
 	}
 
@@ -109,7 +110,7 @@ public class viewSudoku implements viewInterface{
 	}
 
 	@Override
-	public void setColumn() {
+	public void  setColumn() {
 		// TODO Auto-generated method stub
 		this.column = 9;
 	}

@@ -4,6 +4,7 @@ public class viewNonogram implements viewInterface {
 	
 	private int row, column;
 	static Scanner userInput;
+	private userMove moves;
 	
 	public viewNonogram() {
 		row  = column = -1;
@@ -11,7 +12,7 @@ public class viewNonogram implements viewInterface {
 	}
 	
 	@Override
-	public int start() {
+	public void start() {
 		// TODO Auto-generated method stub
 		int min = 0, max = 1;
 		
@@ -25,26 +26,24 @@ public class viewNonogram implements viewInterface {
 			System.out.println("exit: Nonogram GoodBye!");
 			break;
 		case 1:
-			setRow(); setColumn();
+			setRow(); 
+			setColumn();
 		}
-		
-		return input;
 	}
 	
 	@Override
-	public void move() {
+	public userMove move() {
 		// TODO Auto-generated method stub
 		int zero = 0;
+		moves = new userMove();
 		
 		System.out.print("Row: ");
-		int rowMove = checkValid(zero, row); 
+		moves.setRow(checkValid(zero, row));
 		
 		System.out.print("Column: ");
-		int columnMove = checkValid(zero, column);
+		moves.setColumn(checkValid(zero, row));
 		
-		/*
-		 * changeBlock will go right here (from the move)
-		 */
+		return moves;
 	}
 
 
@@ -100,33 +99,27 @@ public class viewNonogram implements viewInterface {
 	@Override
 	public void setRow() {
 		// TODO Auto-generated method stub
-		int MAX = 15, MIN = 0;
 		
-		System.out.print("Number of rows (max15): ");
-		row = checkValid(MIN, MAX);
+		this.row = 15;
 		
 	}
 
 	@Override
 	public int getRow() {
 		// TODO Auto-generated method stub
-		return this.row;
+		return row;
 	}
 
 	@Override
 	public void setColumn() {
 		// TODO Auto-generated method stub
-		int MAX = 15, MIN = 0;
-		
-		System.out.print("Number of columns (max15):");
-		column = checkValid(MIN, MAX);
-		
+		 this.column = 15;
 	}
 
 	@Override
 	public int getColumn() {
 		// TODO Auto-generated method stub
-		return this.column;
+		return column;
 	}
 
 }
