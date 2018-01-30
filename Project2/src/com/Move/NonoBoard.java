@@ -7,7 +7,8 @@ public class NonoBoard implements GridGame{
 
 	@Override
 	public GridGame getGame() {
-		return new NonoBoard(9,9);
+		generateRandom(9,9);
+		return this;
 	}
 
 	//returns true if solved and false otherwise
@@ -33,7 +34,7 @@ public class NonoBoard implements GridGame{
 	}
 	
 	//generate a random nonogram of a certain number of rows and columns
-	private NonoBoard(int rows, int columns) {
+	private void generateRandom(int rows, int columns) {
 		board = new NonoBlock[rows][columns];
 		Random r= new Random(System.currentTimeMillis());
 		for(int i=0;i<board.length; i++) {
@@ -43,10 +44,6 @@ public class NonoBoard implements GridGame{
 		}
 	}
 	
-	// start with a pre-made board
-	public NonoBoard(NonoBlock[][] board) {
-		this.board = board;
-	}
 
 	//returns true if square is solved and false otherwise
 	public boolean isBlockSolved(int x, int y) {
@@ -171,3 +168,4 @@ public class NonoBoard implements GridGame{
 	}
 
 }
+

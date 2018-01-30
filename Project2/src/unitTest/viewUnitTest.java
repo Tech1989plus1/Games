@@ -1,4 +1,8 @@
-package com.View;
+package unitTest;
+
+import com.View.userMove;
+import com.View.viewNonogram;
+import com.View.viewSudoku;
 
 public class viewUnitTest {
 
@@ -33,3 +37,4 @@ public class viewUnitTest {
 	}
 
 }
+

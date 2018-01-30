@@ -1,6 +1,7 @@
 package com.Move;
 
 public class NonoBlock {
+
 	//char emptyBlock ='\u25A0';
 	//char filledBlock ='\u2B1B';
 	char emptyBlock ='-';
