@@ -5,7 +5,7 @@ import com.Move.*;
 
 public class gameController {
 
-	public static void main(String[] args) {
+	public gameController() {
 		// TODO Auto-generated method stub
 		userMove user_move;
 		viewConsole console = new viewConsole();
