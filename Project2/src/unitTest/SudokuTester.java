@@ -1,12 +1,13 @@
 package unitTest;
-
+/*
 import com.Move.GridGame;
 import com.Move.NonoBoard;
 import com.Move.SudoBoard;
 
 public class SudokuTester {
-	
+
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		GridGame sb = new SudoBoard();
 		sb.getGame();
 		
@@ -114,5 +115,6 @@ public class SudokuTester {
 		
 		System.out.println(sb.isSolved());
 	}
-}
 
+}
+*/

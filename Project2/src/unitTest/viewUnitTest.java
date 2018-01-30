@@ -1,13 +1,15 @@
 package unitTest;
-
+/*
 import com.View.userMove;
 import com.View.viewNonogram;
 import com.View.viewSudoku;
 
 public class viewUnitTest {
 
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+	
 		
 		userMove nonoMoves = new userMove();
 		viewNonogram nono = new viewNonogram();
@@ -33,8 +35,8 @@ public class viewUnitTest {
 		System.out.println("Move method row number: " + sudoMoves.getRow());
 		System.out.println("Move method column number: " + sudoMoves.getColumn());
 		System.out.println("Move method input value: " + sudoMoves.getInput());
-		
 	}
 
 }
+*/
 
