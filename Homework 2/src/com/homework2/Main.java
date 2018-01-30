@@ -20,8 +20,6 @@ public class Main {
             System.out.print("That's not a valid choice.\n");
 		}
 		
-		scanner.close();
-		
 		switch (i) {
 		case 0:
 			new gameController();
@@ -32,6 +30,7 @@ public class Main {
 			break;
 		}
 		
+		scanner.close();
 	}
 	
 	private static int getchoice(String prompt) {
