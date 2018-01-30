@@ -32,4 +32,5 @@ public class userMove {
 	public int getInput() {
 		return this.input;
 	}
+	
 }

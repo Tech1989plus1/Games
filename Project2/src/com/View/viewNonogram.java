@@ -17,18 +17,40 @@ public class viewNonogram implements viewInterface {
 		int min = 0, max = 1;
 		
 		System.out.println("Welcome to Nonogram");
-		System.out.print("[0]: Exit, [1]: Random Board: ");
+		System.out.print("[0]: Exit, [1]: Start: ");
 		
 		int input = checkValid(min, max);
 		
 		switch(input){
 		case 0:
 			System.out.println("exit: Nonogram GoodBye!");
+			System.exit(0);
 			break;
 		case 1:
 			setRow(); 
 			setColumn();
 		}
+	}
+	
+	@Override
+	public int checkValid(int min, int max) {
+		// TODO Auto-generated method stub
+	boolean valid = false;
+		
+		while(!valid) {
+			try {
+				int num = userInput.nextInt();
+				
+				if(!(num >= min && num <= max))
+					throw new Exception("Invalid try again: ");
+				
+				return num;
+				
+			} catch(Exception ex) {
+				System.out.print(ex.getMessage());
+			}
+		}
+		return 0;
 	}
 	
 	@Override
@@ -46,28 +68,6 @@ public class viewNonogram implements viewInterface {
 		return moves;
 	}
 
-
-	@Override
-	public int checkValid(int min, int max) {
-		// TODO Auto-generated method stub
-		boolean valid = false;
-		
-		while(!valid) {
-			try {
-				int num = userInput.nextInt();
-				
-				if(!(num >= min && num <= max))
-					throw new Exception("Invalid try again: ");
-				
-				return num;
-				
-			} catch(Exception ex) {
-				System.out.print(ex.getMessage());
-			}
-		}
-		
-		return 0;
-	}
 
 	@Override
 	public void printBoard() {
@@ -100,7 +100,7 @@ public class viewNonogram implements viewInterface {
 	public void setRow() {
 		// TODO Auto-generated method stub
 		
-		this.row = 15;
+		this.row = 8;
 		
 	}
 
@@ -113,7 +113,7 @@ public class viewNonogram implements viewInterface {
 	@Override
 	public void setColumn() {
 		// TODO Auto-generated method stub
-		 this.column = 15;
+		 this.column = 8;
 	}
 
 	@Override
@@ -121,5 +121,4 @@ public class viewNonogram implements viewInterface {
 		// TODO Auto-generated method stub
 		return column;
 	}
-
 }

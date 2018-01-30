@@ -28,4 +28,5 @@ public int checkValid(int min, int max);
 //printBoard() method prints the board, and does not passes any parameters
 // no return
 public void printBoard();
+
 }
