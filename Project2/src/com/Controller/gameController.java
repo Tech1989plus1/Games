@@ -1,73 +1,50 @@
 package com.Controller;
 
+import com.View.*;
+import com.Move.*;
+
 public class gameController {
 
-	private viewConsole viewconsole;
-	private viewSudoku sudoku;
-	private viewNonogram vnonogram;
-	private SudokuBoard sboard;
-	private GridGame game;
-	private NonoBoard nonogram;
-	private int userinput;
-	
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-	}
-	/*
-	public Controller( viewConsole view){
+		userMove user_move;
+		viewConsole console = new viewConsole();
 		
-		this.viewconsole = view;	
-		int input;
-		
-		
-		input = this.viewconsole.start();
-		if(input == 1){
-			sudoku.getGame();
-			userinput = sudoku.start();
+		switch(console.start()){
+		case 1:
+			viewSudoku con_Sudo = new viewSudoku();
+			GridGame board_Sudo = new SudoBoard();
+			board_Sudo.getGame();	//Loading board
+			con_Sudo.start();		//Starting game
 			
-			sudoku.printBoard();
-		}
-		else if(input == 0){
-			nonogram.getGame();
-			userinput = vnonogram.start();
 			
-			vnonogram.printBoard();
-		}
-		
-		
-	
-		
-		
-		
+			do {
+				System.out.println (board_Sudo.toString());
+				user_move = con_Sudo.move();
+				board_Sudo.changeBlock(user_move.getRow(), user_move.getColumn(), user_move.getInput());
+			}while(!board_Sudo.isSolved());
+			
+			
+			break;
+			
+		case 2:
+			viewNonogram con_Nono = new viewNonogram();
+			GridGame board_Nono = new NonoBoard();
+			board_Nono.getGame();	//Loading board
+			con_Nono.start();		//Starting game
+			
+			do {
+				System.out.println(board_Nono.toString());
+				user_move = con_Nono.move();
+				board_Nono.changeBlock(user_move.getRow(), user_move.getColumn(), user_move.getInput());
+				
+			}while(!board_Nono.isSolved());
+			break;
+			
+		default:
+			System.exit(0);
+			
+		}	
 	}
-	
-	public String toString(){
-		return game.toString();
-	}
-	
-	public boolean checkifSolved(){
-		return game.isSolved();
-	}
-	
-	public boolean changeBlock(int x, int y, int z){
-		return game.changeBlock(x,y,z);
-	}
-	
-	
-	
-	
-	public int start(){
-		return viewconsole.start();
-	}
-	public void printBoard(){
-		viewconsole.printBoard();
-	}
-	public int checkValid(int max, int min){
-		return viewconsole.checkValid(max, min);
-	}
-	
-	*/
 
 }
